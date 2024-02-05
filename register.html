@@ -63,10 +63,10 @@
         <h2>Register</h2>
         <input type="text" id="registerUsername" placeholder="Username" required>
         <input type="password" id="registerPassword" placeholder="Password" required>
-        <input type="password" id="registerPasswordcheck" placeholder="Password Check" required>
+        <input type="password" id="registerPasswordcheck" placeholder="Confirm Password" required>
         <button type="register" onclick="register()">Register</button>
         <div class="login-link">
-            <a href="index.html">Bạn đã có tài khoản! Đăng nhập</a>
+            <a href="login.html">Bạn đã có tài khoản! Đăng nhập</a>
         </div>
     </div>
 
@@ -84,7 +84,7 @@
           if (!localStorage.getItem(username)) {
               localStorage.setItem(username, password);
               alert("Đăng ký thành công!");
-              window.location.href = "index.html";
+              window.location.href = "login.html";
           } else {
               alert("Tài khoản đã tồn tại!");
           }
