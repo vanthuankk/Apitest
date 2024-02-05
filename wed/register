@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .register-container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            max-width: 400px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Đặt align-items là center để căn giữa các phần tử theo chiều dọc */
+        }
+
+        input[type="text"],
+        input[type="password"],
+        button[type="register"],
+        .login-link {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            box-sizing: border-box;
+            border: #ccc;
+            
+            
+        }
+
+        button[type="register"] {
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+        }
+
+        .login-link a {
+            color: #4CAF50;
+            text-decoration: none;
+        }
+
+        .login-link a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="register-container">
+        <h2>Register</h2>
+        <input type="text" id="registerUsername" placeholder="Username" required>
+        <input type="password" id="registerPassword" placeholder="Password" required>
+        <input type="password" id="registerPasswordcheck" placeholder="Password Check" required>
+        <button type="register" onclick="register()">Register</button>
+        <div class="login-link">
+            <a href="index.html">Bạn đã có tài khoản! Đăng nhập</a>
+        </div>
+    </div>
+
+    <script>
+  function register() {
+          var username = document.getElementById("registerUsername").value;
+          var password = document.getElementById("registerPassword").value;
+          var passwordCheck = document.getElementById("registerPasswordcheck").value;
+
+          if (password !== passwordCheck) {
+              alert("Mật khẩu xác nhận không khớp!");
+              return;
+          }
+
+          if (!localStorage.getItem(username)) {
+              localStorage.setItem(username, password);
+              alert("Đăng ký thành công!");
+              window.location.href = "index.html";
+          } else {
+              alert("Tài khoản đã tồn tại!");
+          }
+      }
+  </script>
+</body>
+</html>
