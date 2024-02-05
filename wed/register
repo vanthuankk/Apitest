@@ -66,7 +66,7 @@
         <input type="password" id="registerPasswordcheck" placeholder="Password Check" required>
         <button type="register" onclick="register()">Register</button>
         <div class="login-link">
-            <a href="index.html">Bạn đã có tài khoản! Đăng nhập</a>
+            <a href="wed/index.html">Bạn đã có tài khoản! Đăng nhập</a>
         </div>
     </div>
 
@@ -84,7 +84,7 @@
           if (!localStorage.getItem(username)) {
               localStorage.setItem(username, password);
               alert("Đăng ký thành công!");
-              window.location.href = "index.html";
+              window.location.href = "wed/index.html";
           } else {
               alert("Tài khoản đã tồn tại!");
           }
