@@ -1,18 +1,17 @@
 exports.name = '/youtube/search';
 exports.index = async (req, res, next) => {
   const keyword = req.query.keyword;
-  if (!keyword) return res.json({ error: 'Thiếu dữ liệu để khởi chạy chương trình ' });
-  const axios = require('axios');
+  if (!keyword) return res.json({ error: 'Thiếu dữ liệu để khởi chạy chương trình.' });
 
+  const axios = require('axios');
   const options = {
-    method: 'POST',
-    url: 'https://all-media-api.p.rapidapi.com/v1/social/youtube/search',
+    method: 'GET',
+    url: 'https://youtube138.p.rapidapi.com/search/',
+    params: { q: keyword },
     headers: {
-      'content-type': 'application/json',
       'X-RapidAPI-Key': 'fd92cf57c9msh1f7b78b804353c7p1548f3jsn69db0304865d',
-      'X-RapidAPI-Host': 'all-media-api.p.rapidapi.com'
-    },
-    data: { url: keyword }
+      'X-RapidAPI-Host': 'youtube138.p.rapidapi.com'
+    }
   };
 
   try {
@@ -21,6 +20,6 @@ exports.index = async (req, res, next) => {
     return res.json(response.data);
   } catch (error) {
     console.error(error);
-    return res.json({ error: 'Có lỗi xảy ra khi tìm kiếm trên YouTube' });
+    return res.json({ error: 'Có lỗi xảy ra khi tìm kiếm trên YouTube.' });
   }
 };
