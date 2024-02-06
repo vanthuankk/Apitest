@@ -1,4 +1,6 @@
 const axios = require('axios');
+const keyAPi = ['fd92cf57c9msh1f7b78b804353c7p1548f3jsn69db0304865d','b619707d57mshc1e2f8dec3870ecp12e04cjsnb42dfa0c28ca']
+ var keyRandom = keyAPi[Math.floor(Math.random() * keyAPi.length)];
 
 exports.name = '/downall';
 exports.index = async (req, res, next) => {
@@ -11,7 +13,7 @@ exports.index = async (req, res, next) => {
     url: 'https://social-download-all-in-one.p.rapidapi.com/v1/social/autolink',
     headers: {
       'content-type': 'application/json',
-      'X-RapidAPI-Key': 'fd92cf57c9msh1f7b78b804353c7p1548f3jsn69db0304865d',
+      'X-RapidAPI-Key': keyRandom,
       'X-RapidAPI-Host': 'social-download-all-in-one.p.rapidapi.com'
     },
     data: { url: link }
