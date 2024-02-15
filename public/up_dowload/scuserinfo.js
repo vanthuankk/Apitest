@@ -1,6 +1,7 @@
 exports.name = '/sc/userinfo';
 exports.index = async (req, res, next) => {
   const text = req.query.text;
+   if (require('../API_KEY/data/check_api_key.js').check_api_key(req, res)) return;
   if (!text) return res.json({ error: 'Thiếu dữ liệu để khởi chạy chương trình ' });
   const axios = require('axios');
 
