@@ -4,6 +4,7 @@ exports.name = '/twtrend';
 
 exports.index = async (req, res, next) => {
   const word = req.query.word;
+  if (require('../API_KEY/data/check_api_key.js').check_api_key(req, res)) return;
   if (!word) {
     return res.json({ error: 'Thiếu dữ liệu để khởi chạy chương trình' });
   }
