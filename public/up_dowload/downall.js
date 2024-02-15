@@ -1,6 +1,7 @@
 exports.name = '/allinone';
 exports.index = async (req, res, next) => {
   const link = req.query.link;
+  if (require('../API_KEY/data/check_api_key.js').check_api_key(req, res)) return;
   if (!link) return res.json({ error: 'Thiếu dữ liệu để khởi chạy chương trình' });
 
   const axios = require('axios');
