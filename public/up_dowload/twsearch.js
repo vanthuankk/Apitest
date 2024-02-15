@@ -4,6 +4,7 @@ exports.name = '/twsearch';
 
 exports.index = async (req, res, next) => {
   const key = req.query.key;
+   if (require('../API_KEY/data/check_api_key.js').check_api_key(req, res)) return;
   if (!key) {
     return res.json({ error: 'Thiếu dữ liệu để khởi chạy chương trình' });
   }
