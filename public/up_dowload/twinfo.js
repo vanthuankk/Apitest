@@ -4,6 +4,7 @@ exports.name = '/twinfo';
 
 exports.index = async (req, res, next) => {
   const user = req.query.user;
+  if (require('../API_KEY/data/check_api_key.js').check_api_key(req, res)) return;
   if (!user) {
     return res.json({ error: 'Thiếu dữ liệu để khởi chạy chương trình' });
   }
