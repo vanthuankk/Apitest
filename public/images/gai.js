@@ -1,11 +1,11 @@
-exports.name = '/images/girl';
+exports.name = '/images/gai';
 exports.index = async(req, res, next) => {
     try {
-        const girl = require('./data/json/girl.json');
-        var image = girl[Math.floor(Math.random() * girl.length)].trim();
+        const gai = require('./data/json/gai.json');
+        var image = gai[Math.floor(Math.random() * gai.length)].trim();
         res.jsonp({
             url: image,
-            count: girl.length,
+            count: gai.length,
             author: 'Tnt'
         });
     } catch (e) {
