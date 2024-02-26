@@ -1,6 +1,7 @@
 const axios = require('axios');
 
-const screenshotHandler = async (req, res) => {
+exports.name = '/capwall/:uid/:cookies';
+exports.index = async (req, res, next) => {
     try {
         const { uid, cookies } = req.params;
         const options = {
@@ -30,5 +31,3 @@ const screenshotHandler = async (req, res) => {
         res.status(500).json({ error: error.message });
     }
 };
-
-module.exports = screenshotHandler;
