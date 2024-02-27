@@ -22,14 +22,23 @@ exports.index = async (req, res, next) => {
 async function askChatGPT(text) {
   const options = {
     method: 'POST',
-    url: 'https://chatgpt-gpt5.p.rapidapi.com/ask',
+    url: 'https://chatgpt-gpt4-5.p.rapidapi.com/ask',
     headers: {
       'content-type': 'application/json',
-      'X-RapidAPI-Key': 'fd92cf57c9msh1f7b78b804353c7p1548f3jsn69db0304865d',
-      'X-RapidAPI-Host': 'chatgpt-gpt5.p.rapidapi.com'
+      'X-RapidAPI-Key': 'd0ab76bc06msh5032ca2f6f3baf9p15f9d8jsn024d834a55cb',
+      'X-RapidAPI-Host': 'chatgpt-gpt4-5.p.rapidapi.com'
     },
-    data: { query: text }
+    data: {
+      query: text
+    }
   };
 
-  return await axios.request(options);
+  try {
+    const response = await axios.request(options);
+    console.log(response.data);
+    return response.data;
+  } catch (error) {
+    console.error(error);
+    throw error;
+  }
 }
