@@ -1,32 +1,24 @@
-const axios = require('axios');
-
 exports.name = '/chatgpt5';
 exports.index = async (req, res, next) => {
   const text = req.query.text;
 
-  if (require('../API_KEY/data/check_api_key.js').check_api_key(req, res)) return;
-  if (!text) {
-    return res.status(400).json({ error: 'Thiếu dữ liệu để khởi chạy chương trình' });
+  // Kiểm tra dữ liệu đầu vào
+  if (!text || typeof text !== 'string') {
+    return res.status(400).json({ error: 'Vui lòng nhập từ muốn GPT trả lời' });
   }
 
-  try {
-    const response = await askChatGPT(text);
-    console.log(response.data);
-    return res.json(response.data);
-  } catch (error) {
-    console.error(error);
-    return res.status(500).json({ error: 'Có lỗi xảy ra khi AI trả lời' });
-  }
-};
+  const axios = require('axios');
+  const rapidApiKey = 'd0ab76bc06msh5032ca2f6f3baf9p15f9d8jsn024d834a55cb';
+  const rapidApiHost = 'chatgpt-gpt4-5.p.rapidapi.com';
+  const gptApiUrl = 'https://chatgpt-gpt4-5.p.rapidapi.com/ask';
 
-async function askChatGPT(text) {
   const options = {
     method: 'POST',
-    url: 'https://chatgpt-gpt4-5.p.rapidapi.com/ask',
+    url: gptApiUrl,
     headers: {
       'content-type': 'application/json',
-      'X-RapidAPI-Key': 'd0ab76bc06msh5032ca2f6f3baf9p15f9d8jsn024d834a55cb',
-      'X-RapidAPI-Host': 'chatgpt-gpt4-5.p.rapidapi.com'
+      'X-RapidAPI-Key': rapidApiKey,
+      'X-RapidAPI-Host': rapidApiHost
     },
     data: {
       query: text
@@ -36,9 +28,9 @@ async function askChatGPT(text) {
   try {
     const response = await axios.request(options);
     console.log(response.data);
-    return response.data;
+    return res.json(response.data);
   } catch (error) {
     console.error(error);
-    throw error;
+    return res.status(500).json({ error: 'Có lỗi xảy ra khi sử dụng dịch vụ GPT' });
   }
-}
+};
