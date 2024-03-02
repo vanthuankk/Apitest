@@ -1,4 +1,7 @@
-
+exports.name = '/aiart';
+exports.index = async (req, res, next) => {
+  const text = req.query.text;
+  if (!text) return res.status(400).json({ error: 'Hãy nhập từ muốn AI vẽ' });
 const axios = require('axios');
 
 const options = {
