@@ -338,7 +338,6 @@
       <div class="description">
         API TNTXTRICK
         / Bán Src API giá rẻ
-        <div id="currentDateTime"></div>
         <table>
             <hr>
 
@@ -519,40 +518,6 @@
     </div>
   <script>
     
-      function showCurrentDateTime() {
-        var currentDateTime = new Date();
-        var day = currentDateTime.getDate();
-        var month = currentDateTime.getMonth() + 1; // Lưu ý: Tháng bắt đầu từ 0
-        var year = currentDateTime.getFullYear();
-        var hours = currentDateTime.getHours();
-        var minutes = currentDateTime.getMinutes();
-        var seconds = currentDateTime.getSeconds();
-
-        // Format ngày, tháng, năm, giờ, phút và giây để có dạng 01, 02, ... 09
-        if (day < 10) {
-          day = '0' + day;
-        }
-        if (month < 10) {
-          month = '0' + month;
-        }
-        if (hours < 10) {
-          hours = '0' + hours;
-        }
-        if (minutes < 10) {
-          minutes = '0' + minutes;
-        }
-        if (seconds < 10) {
-          seconds = '0' + seconds;
-        }
-
-        var formattedDateTime = day + '/' + month + '/' + year + ' ' + hours + ':' + minutes + ':' + seconds;
-
-        // Hiển thị ngày và giờ trong phần tử có id là 'currentDateTime'
-        document.getElementById('currentDateTime').innerText = formattedDateTime;
-      }
-
-      // Gọi hàm showCurrentDateTime mỗi giây để cập nhật ngày và giờ
-      setInterval(showCurrentDateTime, 1000);
        
     
 </script>
