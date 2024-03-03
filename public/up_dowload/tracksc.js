@@ -1,4 +1,7 @@
-
+exports.name = '/tracksc';
+exports.index = async(req, res, next) => {
+const keyword = req.query.keyword;
+if (!keyword) return res.json({ error: 'Thiếu dữ liệu để khởi chạy chương trình ' });
 const axios = require('axios');
 
 const options = {
