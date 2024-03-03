@@ -332,6 +332,7 @@
   </style>
 </head>
 <body>
+      <p id="continuousTime"></p>
       <div class="center">
       <h1 class="rainbow-text animated-rainbow">TNTXTRICK API</h1>
       <h1 class="rainbow-text animated-rainbow">Tổng API: 42 (tổng số API)</h1>
@@ -340,7 +341,6 @@
         / Bán Src API giá rẻ
         <table>
             <hr>
-
         </table>
         <h3 class="rainbow-text animated-rainbow">MENU API</h3>
         <table>
@@ -517,7 +517,26 @@
         </hr>
     </div>
   <script>
-    
+    function updateContinuousTime() {
+    // Lấy thời gian hiện tại
+    var currentTime = new Date();
+
+    // Chuyển đổi thời gian thành định dạng giờ:phút:giây
+    var hours = currentTime.getHours();
+    var minutes = currentTime.getMinutes();
+    var seconds = currentTime.getSeconds();
+
+    // Thêm số 0 đằng trước nếu cần
+    hours = (hours < 10 ? '0' : '') + hours;
+    minutes = (minutes < 10 ? '0' : '') + minutes;
+    seconds = (seconds < 10 ? '0' : '') + seconds;
+
+    // Hiển thị thời gian chuyển động liên tục trên trang web
+    document.getElementById('continuousTime').innerText = hours + ':' + minutes + ':' + seconds;
+}
+
+// Cập nhật thời gian sau mỗi giây
+setInterval(updateContinuousTime, 1000);
        
     
 </script>
