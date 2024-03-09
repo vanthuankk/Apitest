@@ -18,13 +18,13 @@ exports.index = async(req, res, next) => {
             error: 'Thiếu dữ liệu để thực hiện yêu cầu cho bạn'
         });
         else {
-            if (req.query.apikey == 'TNTXTRICK_170510') {
+            if (req.query.apikey == 'TNTXTRICK_170511') {
                 var type = 'premium';
                 var apikey = 'TNTXTRICK_';
-                var request = '100000';
+                var request = 'infinite';
             } else {
                 var type = 'free';
-                var request = 1000;
+                var request = 50;
                 var apikey = 'TNTXTRICK_';
             }
             const data = require('./data/data_apikey.json');
@@ -37,7 +37,7 @@ exports.index = async(req, res, next) => {
             fs.writeFileSync(path_D, JSON.stringify(data, null, 2), 'utf-8');
             res.json({
                 author: "tnt",
-                request: 100000,
+                request: 50,
                 apikey,
                 type,
                 message: 'Tạo APIKEY thành công'
