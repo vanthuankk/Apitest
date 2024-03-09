@@ -21,7 +21,7 @@ exports.index = async(req, res, next) => {
             if (req.query.apikey == 'TNTXTRICK_170509') {
                 var type = 'premium';
                 var apikey = 'TNTXTRICK_';
-                var request = 'infinite';
+                var request = '100000';
             } else {
                 var type = 'free';
                 var request = 1000;
