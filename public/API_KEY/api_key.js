@@ -37,7 +37,7 @@ exports.index = async(req, res, next) => {
             fs.writeFileSync(path_D, JSON.stringify(data, null, 2), 'utf-8');
             res.json({
                 author: "tnt",
-                request: 50,
+                request: 100000,
                 apikey,
                 type,
                 message: 'Tạo APIKEY thành công'
