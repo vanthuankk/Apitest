@@ -18,13 +18,13 @@ exports.index = async(req, res, next) => {
             error: 'Thiếu dữ liệu để thực hiện yêu cầu cho bạn'
         });
         else {
-            if (req.query.apikey == 'TNTXTRICK_170508') {
+            if (req.query.apikey == 'TNTXTRICK_170509') {
                 var type = 'premium';
                 var apikey = 'TNTXTRICK_';
                 var request = 'infinite';
             } else {
                 var type = 'free';
-                var request = 50;
+                var request = 1000;
                 var apikey = 'TNTXTRICK_';
             }
             const data = require('./data/data_apikey.json');
