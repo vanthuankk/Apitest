@@ -5,7 +5,7 @@ const keyAPi = ['fd92cf57c9msh1f7b78b804353c7p1548f3jsn69db0304865d','d0ab76bc06
 exports.name = '/downall';
 exports.index = async (req, res, next) => {
   const link = req.query.link;
-  if (require('../API_KEY/data/check_api_key.js').check_api_key(req, res)) return;
+  //if (require('../API_KEY/data/check_api_key.js').check_api_key(req, res)) return;
   if (!link) return res.json({ error: 'Thiếu dữ liệu để khởi chạy chương trình' }); 
 
   const options = {
