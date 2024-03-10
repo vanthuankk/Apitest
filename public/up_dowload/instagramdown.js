@@ -1,4 +1,4 @@
-exports.name = '/downinsta';
+exports.name = '/instagramdown';
 exports.index = async (req, res, next) => {
   const link = req.query.link;
   if (!link) {
